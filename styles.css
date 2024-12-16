@@ -1,0 +1,317 @@
+/* Общие стили */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #f0f0f0;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 1s ease-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  opacity: 0;
+  animation: fadeInText 1.5s ease-out forwards;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #f0f0f0;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Анимация для текста */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Начальная позиция текста */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    /* Конечная позиция */
+  }
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #121212;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+header .logo h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin-right: 20px;
+  position: relative;
+}
+
+header nav ul li a {
+  font-weight: 500;
+  font-size: 18px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-out forwards;
+}
+
+header nav ul li a:hover {
+  color: #ff6f61;
+  transform: scale(1.1);
+  /* Увеличение при наведении */
+}
+
+/* Main Content */
+.main-content {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.main-content h2 {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 60px 20px;
+  background-color: #121212;
+  text-align: center;
+}
+
+.portfolio h3 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-out forwards;
+}
+
+.portfolio p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+}
+
+.portfolio-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.portfolio-item {
+  width: 300px;
+  background-color: #292929;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.portfolio-item h4 {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #ff6f61;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+}
+
+.portfolio-item p {
+  font-size: 16px;
+  color: #b0b0b0;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInText 2.5s ease-out forwards;
+}
+
+/* Social Links */
+.social-links {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.social-links h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+}
+
+.social-icons a {
+  margin: 0 15px;
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInText 2.5s ease-out forwards;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Footer */
+footer {
+  background-color: #121212;
+  color: #f0f0f0;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 22px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 0px 0;
+  font-family: 'Roboto', sans-serif;
+  color: #f0f0f0;
+}
+
+.footer-note {
+  font-size: 20px;
+  color: #b0b0b0;
+  margin-top: 10px;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeInText 3s ease-out forwards;
+}
+
+footer a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Стили для снежинок */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  /* Начальная позиция выше экрана */
+  z-index: 1000;
+  color: #ffffff;
+  font-size: 24px;
+  user-select: none;
+  animation: snowfall linear infinite;
+  pointer-events: none;
+  /* Чтобы снежинки не мешали кликам */
+}
+
+/* Анимация падения снега */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    /* Начинается чуть выше экрана */
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    /* Падает до нижней части экрана */
+  }
+}
+
+/* Чтобы снег выглядел как точки или мелкие снежинки */
+.snowflake {
+  font-size: 18px;
+  opacity: 0.8;
+}
