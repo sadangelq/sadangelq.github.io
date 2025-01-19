@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www.)?status.kosmostimes.fun$ [NC]
+RewriteCond %{REQUEST_URI} !^/status/ [NC]
+RewriteRule (.*) /status/$1 [L]
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www.)?admin.kosmostimes.fun$ [NC]
+RewriteCond %{REQUEST_URI} !^/admin/ [NC]
+RewriteRule (.*) /admin/$1 [L]
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+
