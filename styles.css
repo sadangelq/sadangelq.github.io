@@ -315,3 +315,86 @@ body {
   font-size: 18px;
   opacity: 0.8;
 }
+
+
+/* Контейнер выпадающего списка */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/* Стили для <select> */
+.language-dropdown select {
+  appearance: none; /* Убираем стандартный вид */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 2px solid #ff6f61;
+  border-radius: 20px; /* Увеличено закругление */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+/* Стили при наведении */
+.language-dropdown select:hover {
+  background-color: #292929;
+  border-color: #ff856f;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Стили при фокусе */
+.language-dropdown select:focus {
+  outline: none;
+  border-color: #ff6f61;
+  box-shadow: 0 0 8px #ff6f61;
+}
+
+/* Стили опций */
+.language-dropdown select option {
+  background-color: #1e1e1e; /* Цвет фона */
+  color: #ffffff; /* Цвет текста */
+  padding: 10px;
+  border-radius: 5px; /* Закругление углов опций */
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin: 2px 0;
+}
+
+/* Убираем стандартное выделение синего цвета */
+.language-dropdown select option:checked {
+  background-color: #ff6f61;
+  color: #ffffff;
+}
+
+/* При наведении на опцию */
+.language-dropdown select option:hover {
+  background-color: #383838;
+  color: #ff6f61;
+  transition: all 0.3s ease;
+}
+
+/* Добавляем стрелочку */
+.language-dropdown::after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #ffffff;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+/* Эффект вращения стрелки при наведении */
+.language-dropdown select:hover + .language-dropdown::after {
+  transform: translateY(-50%) rotate(180deg);
+}
