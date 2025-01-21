@@ -210,44 +210,54 @@ footer {
 </head>
 
 <body>
-    <!-- Header with Menu -->
-    <header>
-        <div class="logo">
-            <h1>sadangelq</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="index.html#portfolio">Портфолио</a></li>
-                <li><a href="index.html#social-links">Контакты</a></li>
-                <li><a href="menager.html">Менеджер</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header with Menu -->
+  <header>
+      <div class="logo">
+          <h1>sadangelq</h1>
+      </div>
+      <nav>
+          <ul>
+              <li><a href="/" data-lang="home">Главная</a></li>
+              <li><a href="#portfolio" data-lang="portfolio">Портфолио</a></li>
+              <li><a href="#social-links" data-lang="contacts">Контакты</a></li>
+              <li><a href="menager.html" data-lang="manager">Менеджер</a></li>
+          </ul>
+      </nav>
+      <!-- Language Dropdown -->
+      <div class="language-dropdown">
+          <select id="language-select">
+              <option value="ru" selected>Русский</option>
+              <option value="en">English</option>
+              <option value="uk">Українська</option>
+              <option value="pl">Polski</option>
+              <option value="by">Беларуская</option>
+          </select>
+      </div>
+  </header>
 
         <!-- Main Content -->
     <section class="main-content">
-        <h2>SADANGELQ</h2>
-        <p>Начинающий кодер на Java,HTML,PHP, перевод плагинов и не только.</p>
+      <h2 id="main-title" data-lang="main-title">SADANGELQ</h2>
+      <p id="main-description" data-lang="main-description">Начинающий кодер на Java,HTML,PHP, перевод плагинов и не только.</p>
     </section>
 
     <section id="portfolio" class="portfolio">
-        <h3>Мененджер</h2>
-        <p>Для связи с менеджером, напишите в Discord: <strong>@managersadangelq</strong></p>
+        <h3 id="menager-title" data-lang="menager-title">Мененджер</h3>
+        <p id="menager-description" data-lang="menager-description">Для связи с менеджером, напишите в Discord: <strong id="discord-id">@managersadangelq</strong></p>
         <div class="discord-contact">
-            <a href="https://discord.gg/invite/rAHdavcMvB" target="_blank" class="discord-button">Перейти в Discord Сервер</a>
+          <a href="https://discord.gg/invite/rAHdavcMvB" target="_blank" id="discord-button" class="discord-button" data-lang="discord-button">Перейти в Discord Сервер</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2023 Sadangelq Корпарейшен. Все права защищены.</p>
-            <p class="footer-note">Sadangelq Корпарейшен и KosmosTimes Корпарейшен не связаны с Mojang Studios и
-                Microsoft
-                и их EULA.</p>
-        </div>
-    </footer>
+      <div class="footer-content">
+          <p data-lang="footer1-description">&copy; 2023 Sadangelq Корпарейшен. Все права защищены.</p>
+          <p data-lang="footer2-description" class="footer-note">Sadangelq Корпарейшен и KosmosTimes Корпарейшен не связаны с Mojang Studios и Microsoft и их EULA.</p>
+      </div>
+    </footer>   
+
+    <script src="script.js"></script>
 </body>
 
 </html>
