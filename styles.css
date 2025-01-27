@@ -398,3 +398,91 @@ body {
 .language-dropdown select:hover + .language-dropdown::after {
   transform: translateY(-50%) rotate(180deg);
 }
+
+
+/* Адаптация для телефонов (до 768px ширины) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  header .logo h1 {
+    font-size: 20px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+  }
+
+  header nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .main-content h2 {
+    font-size: 28px;
+  }
+
+  .main-content p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .portfolio-items {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .portfolio-item {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+
+  footer {
+    font-size: 18px;
+  }
+
+  .language-dropdown select {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Дополнительная адаптация для очень узких экранов (до 480px ширины) */
+@media (max-width: 480px) {
+  .main-content h2 {
+    font-size: 24px;
+  }
+
+  .main-content p {
+    font-size: 14px;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  footer p {
+    font-size: 16px;
+  }
+
+  .footer-note {
+    font-size: 14px;
+  }
+
+  .language-dropdown select {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
