@@ -63,7 +63,7 @@ const translations = {
         "main-title": "SADANGELQ",
         "main-description": "Начинающий кодер на Java,HTML,PHP, перевод плагинов и не только.",
         "menager-title": "Мененджер",
-        "menager-description": "Для связи с менеджером, напишите в Discord: @managersadangelq",
+        "menager-description": "Для связи с менеджером, напишите в Discord: @sadmenager",
         "discord-button": "Перейти в Discord Сервер"
     },
     en: {
@@ -85,7 +85,7 @@ const translations = {
         "main-title": "SADANGELQ",
         "main-description": "Beginning coder in Java, HTML, PHP, plugin translations and more.",
         "menager-title": "Manager",
-        "menager-description": "To contact the manager, write on Discord: @managersadangelq",
+        "menager-description": "To contact the manager, write on Discord: @sadmenager",
         "discord-button": "Join Discord Server"
     },
     uk: {
@@ -107,7 +107,7 @@ const translations = {
         "main-title": "SADANGELQ",
         "main-description": "Початковий кодер на Java, HTML, PHP, переклади плагінів та інше.",
         "menager-title": "Менеджер",
-        "menager-description": "Для зв'язку з менеджером напишіть у Discord: @managersadangelq",
+        "menager-description": "Для зв'язку з менеджером напишіть у Discord: @sadmenager",
         "discord-button": "Приєднатися до серверу Discord"
     },
     pl: {
@@ -129,7 +129,7 @@ const translations = {
         "main-title": "SADANGELQ",
         "main-description": "Początkowy programista w Java, HTML, PHP, tłumaczenie wtyczek i więcej.",
         "menager-title": "Menadżer",
-        "menager-description": "Aby skontaktować się z menadżerem, napisz na Discordzie: @managersadangelq",
+        "menager-description": "Aby skontaktować się z menadżerem, napisz na Discordzie: @sadmenager",
         "discord-button": "Dołącz do serwera Discord"
     },
     by: {
@@ -151,7 +151,7 @@ const translations = {
         "main-title": "SADANGELQ",
         "main-description": "Пачатковы кодэр на Java, HTML, PHP, пераклад плагінаў і не толькі.",
         "menager-title": "Менеджар",
-        "menager-description": "Для сувязі з менеджарам напішыце ў Discord: @managersadangelq",
+        "menager-description": "Для сувязі з менеджарам напішыце ў Discord: @sadmenager",
         "discord-button": "Перайсці на сервер Discord"
     },
 };
