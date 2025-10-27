@@ -484,6 +484,406 @@
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
 
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #ff6f61;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .header-content {
+        padding: 1.2rem 2rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem 1.5rem;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+        z-index: 1001;
+      }
+
+      .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 111, 97, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      .nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .nav a {
+        padding: 1rem 2rem;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav a::after {
+        display: none;
+      }
+
+      .lang-selector {
+        margin-top: 1rem;
+        width: calc(100% - 4rem);
+        margin-left: 2rem;
+      }
+
+      .hero-section {
+        padding: 3rem 1.5rem 3rem;
+        margin-top: 70px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+      }
+
+      .hero-stats {
+        gap: 2rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .countdown-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .countdown-number {
+        font-size: 2.5rem;
+      }
+
+      .countdown-label {
+        font-size: 0.85rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-card {
+        padding: 2rem;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .portfolio-section,
+      .social-section,
+      .countdown-block,
+      .footer {
+        padding: 0 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .block-title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .hero-section {
+        padding: 2rem 1rem 2rem;
+      }
+
+      .hero-label {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+
+      .countdown-card {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .countdown-number {
+        font-size: 2rem;
+      }
+
+      .countdown-label {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+      }
+
+      .portfolio-card,
+      .social-card {
+        padding: 1.5rem;
+      }
+
+      .portfolio-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .portfolio-card h3 {
+        font-size: 1.4rem;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .social-icon img {
+        width: 25px;
+        height: 25px;
+      }
+
+      .portfolio-section,
+      .social-section,
+      .countdown-block,
+      .footer {
+        padding: 0 1rem;
+      }
+
+      .block-title {
+        font-size: 1.5rem;
+      }
+
+      .block-subtitle {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">SADANGELQ</div>
+      <nav class="nav">
+        <a href="#" data-lang="home">Главная</a>
+        <a href="#portfolio" data-lang="portfolio">Портфолио</a>
+        <a href="#social" data-lang="contacts">Контакты</a>
+        <a href="menager.html" data-lang="manager">Менеджер</a>
+      </nav>
+      <select class="lang-selector" id="language-select">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="uk">UK</option>
+        <option value="pl">PL</option>
+        <option value="by">BY</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-label">Developer & Designer</div>
+      <h1 class="hero-title">
+        <span data-lang="heading">SADANGELQ</span><br>
+        <span class="gradient-text">Creative Studio</span>
+      </h1>
+      <p class="hero-description" data-lang="description">
+        Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Проектов</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Платформ</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Качество</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown Block -->
+  <section class="countdown-block" id="countdown">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="timer-title">Обратный отсчёт до разбана</h2>
+      <p class="block-subtitle">Осталось совсем немного времени</p>
+    </div>
+    <div class="countdown-grid">
+      <div class="countdown-card">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label" data-lang="timer-days">Дней</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label" data-lang="timer-hours">Часов</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label" data-lang="timer-minutes">Минут</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label" data-lang="timer-seconds">Секунд</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="portfolio-title">Мои работы</h2>
+      <p class="block-subtitle" data-lang="portfolio-description">Я создал такие сайты как эти:</p>
+    </div>
+    <div class="portfolio-grid">
+      <a href="https://kosmostimes.fun" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">🚀</div>
+        <h3>KosmosTimes</h3>
+        <p data-lang="ks-description">Основной сайт для майнкрафт проекта KosmosTimes (KS)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+      <a href="https://fantastikmine.github.io" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">⛏️</div>
+        <h3>FantastikMine</h3>
+        <p data-lang="fm-description">Основной сайт для майнкрафт проекта FantastikMine (FM)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+      <a href="https://fantastikmine.github.io/tf" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">🏛️</div>
+        <h3>FantastikMine TF</h3>
+        <p data-lang="fm-tf-description">Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Social Section -->
+  <section class="social-section" id="social">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="social-title">Я в социальных сетях</h2>
+      <p class="block-subtitle">Подписывайтесь и следите за обновлениями</p>
+    </div>
+    <div class="social-grid">
+      <a href="https://www.youtube.com/@sadangelq" target="_blank" class="social-card">
+        <div class="social-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" />
+        </div>
+        <div class="social-name">YouTube</div>
+      </a>
+      <a href="https://github.com/fantastikmine" target="_blank" class="social-card">
+        <div class="social-icon">
+          <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="GitHub" />
+        </div>
+        <div class="social-name">GitHub</div>
+      </a>
+      <a href="https:: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .snowflake {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: snowfall linear infinite;
+      user-select: none;
+    }
+
+    @keyframes snowfall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .countdown-grid {
