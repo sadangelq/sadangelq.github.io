@@ -4,109 +4,710 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sadangelq - Разработчик</title>
-  <link rel="shortcut icon" href="images/logos.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 111, 97, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 111, 97, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -1;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 111, 97, 0.1);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #ff6f61;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .nav a {
+      color: #999;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav a:hover {
+      color: #fff;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ff6f61;
+      transition: width 0.3s;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .lang-selector {
+      background: rgba(255, 111, 97, 0.1);
+      border: 1px solid rgba(255, 111, 97, 0.3);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .lang-selector:hover {
+      background: rgba(255, 111, 97, 0.2);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-top: 100px;
+      padding: 6rem 3rem 4rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: rgba(255, 111, 97, 0.1);
+      border: 1px solid rgba(255, 111, 97, 0.3);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      color: #ff6f61;
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #ff6f61 0%, #ffa07a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.3rem;
+      color: #999;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #ff6f61;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Countdown Block */
+    .countdown-block {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 3rem;
+    }
+
+    .block-header {
+      margin-bottom: 2rem;
+    }
+
+    .block-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .block-subtitle {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .countdown-card {
+      background: linear-gradient(135deg, rgba(255, 111, 97, 0.05) 0%, rgba(255, 111, 97, 0.02) 100%);
+      border: 1px solid rgba(255, 111, 97, 0.2);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .countdown-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, #ff6f61, #ffa07a);
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: -1;
+    }
+
+    .countdown-card:hover {
+      transform: translateY(-10px);
+      border-color: transparent;
+    }
+
+    .countdown-card:hover::before {
+      opacity: 0.2;
+    }
+
+    .countdown-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #ff6f61;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .countdown-label {
+      font-size: 1rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      max-width: 1400px;
+      margin: 6rem auto;
+      padding: 0 3rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .portfolio-card {
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 3rem;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6f61, #ffa07a);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(255, 111, 97, 0.3);
+      background: rgba(30, 30, 30, 0.9);
+    }
+
+    .portfolio-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .portfolio-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ff6f61, #ffa07a);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .portfolio-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .portfolio-card p {
+      color: #999;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .portfolio-arrow {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 111, 97, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-card:hover .portfolio-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Social Section */
+    .social-section {
+      max-width: 1400px;
+      margin: 6rem auto;
+      padding: 0 3rem;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .social-card {
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(255, 111, 97, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.6s ease;
+    }
+
+    .social-card:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .social-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(255, 111, 97, 0.3);
+    }
+
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(255, 111, 97, 0.2), rgba(255, 111, 97, 0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      transition: all 0.4s ease;
+    }
+
+    .social-card:hover .social-icon {
+      transform: rotateY(360deg);
+      background: linear-gradient(135deg, #ff6f61, #ffa07a);
+    }
+
+    .social-icon img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Footer */
+    .footer {
+      max-width: 1400px;
+      margin: 6rem auto 2rem;
+      padding: 3rem 3rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .footer-text {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .footer-text:first-child {
+      margin-bottom: 1rem;
+    }
+
+    /* Snowflakes */
+    #snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .snowflake {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      animation: snowfall linear infinite;
+      user-select: none;
+    }
+
+    @keyframes snowfall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero-section {
+        padding: 4rem 2rem 3rem;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .countdown-card {
+        padding: 2rem 1rem;
+      }
+
+      .countdown-number {
+        font-size: 3rem;
+      }
+
+      .portfolio-grid,
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-section,
+      .social-section,
+      .countdown-block,
+      .footer {
+        padding: 0 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+      }
+
+      .countdown-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-
   <!-- Header -->
   <header class="header">
-    <div class="logo">
-      <h1>sadangelq</h1>
-    </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#" data-lang="home">Главная</a></li>
-        <li><a href="#portfolio" data-lang="portfolio">Портфолио</a></li>
-        <li><a href="#social-links" data-lang="contacts">Контакты</a></li>
-        <li><a href="menager.html" data-lang="manager">Менеджер</a></li>
-      </ul>
-    </nav>
-    <div class="language-dropdown">
-      <select id="language-select" aria-label="Выбор языка">
-        <option value="ru">Русский</option>
-        <option value="en">English</option>
-        <option value="uk">Українська</option>
-        <option value="pl">Polski</option>
-        <option value="by">Беларуская</option>
+    <div class="header-content">
+      <div class="logo">SADANGELQ</div>
+      <nav class="nav">
+        <a href="#" data-lang="home">Главная</a>
+        <a href="#portfolio" data-lang="portfolio">Портфолио</a>
+        <a href="#social" data-lang="contacts">Контакты</a>
+        <a href="menager.html" data-lang="manager">Менеджер</a>
+      </nav>
+      <select class="lang-selector" id="language-select">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="uk">UK</option>
+        <option value="pl">PL</option>
+        <option value="by">BY</option>
       </select>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <section class="hero">
-      <h2 data-lang="heading">SADANGELQ</h2>
-      <p data-lang="description">Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.</p>
-    </section>
-
-    <!-- Countdown -->
-    <section id="countdown" class="countdown">
-      <h3><span data-lang="timer-title">Обратный отсчёт до разбана</span></h3>
-      <div class="timer">
-        <div class="time-box"><span id="days">00</span><span class="label" data-lang="timer-days">Дней</span></div>
-        <div class="time-box"><span id="hours">00</span><span class="label" data-lang="timer-hours">Часов</span></div>
-        <div class="time-box"><span id="minutes">00</span><span class="label" data-lang="timer-minutes">Минут</span></div>
-        <div class="time-box"><span id="seconds">00</span><span class="label" data-lang="timer-seconds">Секунд</span></div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-label">Developer & Designer</div>
+      <h1 class="hero-title">
+        <span data-lang="heading">SADANGELQ</span><br>
+        <span class="gradient-text">Creative Studio</span>
+      </h1>
+      <p class="hero-description" data-lang="description">
+        Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Проектов</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Платформ</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Качество</div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio section">
-      <h3 data-lang="portfolio-title">Мои работы</h3>
-      <p data-lang="portfolio-description">Я создал такие сайты как эти:</p>
-      <div class="portfolio-grid">
-        <a href="https://kosmostimes.fun" target="_blank" class="portfolio-card">
-          <h4>KosmosTimes</h4>
-          <p data-lang="ks-description">Основной сайт для майнкрафт проекта KosmosTimes (KS)</p>
-        </a>
-        <a href="https://fantastikmine.github.io" target="_blank" class="portfolio-card">
-          <h4>FantastikMine</h4>
-          <p data-lang="fm-description">Основной сайт для майнкрафт проекта FantastikMine (FM)</p>
-        </a>
-        <a href="https://fantastikmine.github.io/tf" target="_blank" class="portfolio-card">
-          <h4>FantastikMine TF</h4>
-          <p data-lang="fm-tf-description">Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)</p>
-        </a>
+  <!-- Countdown Block -->
+  <section class="countdown-block" id="countdown">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="timer-title">Обратный отсчёт до разбана</h2>
+      <p class="block-subtitle">Осталось совсем немного времени</p>
+    </div>
+    <div class="countdown-grid">
+      <div class="countdown-card">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label" data-lang="timer-days">Дней</div>
       </div>
-    </section>
+      <div class="countdown-card">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label" data-lang="timer-hours">Часов</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label" data-lang="timer-minutes">Минут</div>
+      </div>
+      <div class="countdown-card">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label" data-lang="timer-seconds">Секунд</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Social Links -->
-    <section id="social-links" class="social section">
-      <h3 data-lang="social-title">Я в социальных сетях</h3>
-      <div class="social-icons">
-        <a href="https://www.youtube.com/@sadangelq" target="_blank" aria-label="YouTube">
+  <!-- Portfolio Section -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="portfolio-title">Мои работы</h2>
+      <p class="block-subtitle" data-lang="portfolio-description">Я создал такие сайты как эти:</p>
+    </div>
+    <div class="portfolio-grid">
+      <a href="https://kosmostimes.fun" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">🚀</div>
+        <h3>KosmosTimes</h3>
+        <p data-lang="ks-description">Основной сайт для майнкрафт проекта KosmosTimes (KS)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+      <a href="https://fantastikmine.github.io" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">⛏️</div>
+        <h3>FantastikMine</h3>
+        <p data-lang="fm-description">Основной сайт для майнкрафт проекта FantastikMine (FM)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+      <a href="https://fantastikmine.github.io/tf" target="_blank" class="portfolio-card">
+        <div class="portfolio-icon">🏛️</div>
+        <h3>FantastikMine TF</h3>
+        <p data-lang="fm-tf-description">Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)</p>
+        <div class="portfolio-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Social Section -->
+  <section class="social-section" id="social">
+    <div class="block-header">
+      <h2 class="block-title" data-lang="social-title">Я в социальных сетях</h2>
+      <p class="block-subtitle">Подписывайтесь и следите за обновлениями</p>
+    </div>
+    <div class="social-grid">
+      <a href="https://www.youtube.com/@sadangelq" target="_blank" class="social-card">
+        <div class="social-icon">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" />
-        </a>
-        <a href="https://github.com/fantastikmine" target="_blank" aria-label="GitHub">
+        </div>
+        <div class="social-name">YouTube</div>
+      </a>
+      <a href="https://github.com/fantastikmine" target="_blank" class="social-card">
+        <div class="social-icon">
           <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="GitHub" />
-        </a>
-        <a href="https://www.twitch.tv/sadangelq" target="_blank" aria-label="Twitch">
+        </div>
+        <div class="social-name">GitHub</div>
+      </a>
+      <a href="https://www.twitch.tv/sadangelq" target="_blank" class="social-card">
+        <div class="social-icon">
           <img src="https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-9k76-p-kartinki-tvich-na-prozrachnom-fone-18.png" alt="Twitch" />
-        </a>
-        <a href="https://www.tiktok.com/@sad.angelq" target="_blank" aria-label="TikTok">
+        </div>
+        <div class="social-name">Twitch</div>
+      </a>
+      <a href="https://www.tiktok.com/@sad.angelq" target="_blank" class="social-card">
+        <div class="social-icon">
           <img src="https://w7.pngwing.com/pngs/959/454/png-transparent-tiktok-logo-thumbnail.png" alt="TikTok" />
-        </a>
-        <a href="https://discord.com/invite/rAHdavcMvB" target="_blank" aria-label="Discord">
+        </div>
+        <div class="social-name">TikTok</div>
+      </a>
+      <a href="https://discord.com/invite/rAHdavcMvB" target="_blank" class="social-card">
+        <div class="social-icon">
           <img src="https://img.icons8.com/?size=100&id=2mIgusGquJFz&format=png&color=000000" alt="Discord" />
-        </a>
-      </div>
-    </section>
-  </main>
+        </div>
+        <div class="social-name">Discord</div>
+      </a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p data-lang="footer1-description">&copy; 2023 Sadangelq Corporation. Все права защищены.</p>
-    <p class="note" data-lang="footer2-description">
+    <p class="footer-text" data-lang="footer1-description">&copy; 2023 Sadangelq Corporation. Все права защищены.</p>
+    <p class="footer-text" data-lang="footer2-description">
       Sadangelq Corporation и KosmosTimes Corporation не связаны с Mojang Studios и Microsoft и их EULA.
     </p>
   </footer>
 
-  <!-- Snowflakes Container -->
+  <!-- Snowflakes -->
   <div id="snowflakes"></div>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
-</body>
-</html>
+  <script>
+    const translations = {
+      ru: { heading: "SADANGELQ", description: "Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.", "portfolio-title": "Мои работы", "portfolio-description": "Я создал такие сайты как эти:", "ks-description": "Основной сайт для майнкрафт проекта KosmosTimes (KS)", "fm-description": "Основной сайт для майнкрафт проекта FantastikMine (FM)", "fm-tf-description": "Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)", "social-title": "Я в социальных сетях", "footer1-description": "© 2023 Sadangelq Корпарейшен. Все права защищены.", "footer2-description": "Sadangelq Корпарейшен и KosmosTimes Корпарейшен не связаны с Mojang Studios и Microsoft и их EULA.", home: "Главная", portfolio: "Портфолио", contacts: "Контакты", manager: "Менеджер", "timer-title": "Обратный отсчёт до разбана", "timer-days": "Дней", "timer-hours": "Часов", "timer-minutes": "Минут", "timer-seconds": "Секунд" },
+      en: { heading: "SADANGELQ", description: "A beginner coder in Java, HTML, PHP, plugin translation, and more.", "portfolio-title": "My Work", "portfolio-description": "I created websites like these:", "ks-description": "The main website for the Minecraft project KosmosTimes (KS)", "fm-description": "The main website for the Minecraft project FantastikMine (FM)", "fm-tf-description": "The Trade Federation website for the Minecraft project FantastikMine (FM TF)", "social-title": "I'm on social media", "footer1-description": "© 2023 Sadangelq Corporation. All rights reserved.", "footer2-description": "Sadangelq Corporation and KosmosTimes Corporation are not affiliated with Mojang Studios and Microsoft and their EULA.", home: "Home", portfolio: "Portfolio", contacts: "Contacts", manager: "Manager", "timer-title": "Countdown to unban", "timer-days": "Days", "timer-hours": "Hours", "timer-minutes": "Minutes", "timer-seconds": "Seconds" },
+      uk: { heading: "SADANGELQ", description: "Початківець-кодер у Java, HTML, PHP, переклад плагінів та не тільки.", "portfolio-title": "Мої роботи", "portfolio-description": "Я створив такі сайти, як ці:",
