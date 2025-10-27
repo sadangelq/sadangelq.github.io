@@ -1,488 +1,292 @@
-/* Общие стили */
-body {
-  font-family: 'Roboto', sans-serif;
+/* === Обнуление и базовые стили === */
+* {
   margin: 0;
   padding: 0;
-  background-color: #121212;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #121212;
   color: #f0f0f0;
-  transition: all 0.3s ease-in-out;
-  animation: fadeIn 1s ease-out;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  opacity: 0;
-  animation: fadeInText 1.5s ease-out forwards;
-}
-
-h1,
-h2,
-h3 {
+h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
-  color: #f0f0f0;
-  opacity: 0;
-  animation: fadeInText 2s ease-out forwards;
+  transition: all 0.3s ease;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* Анимация для текста */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInText {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    /* Начальная позиция текста */
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    /* Конечная позиция */
-  }
-}
-
-/* Header */
-header {
+/* === Header === */
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #121212;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  padding: 1.5rem 2rem;
+  background: #121212;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header .logo h1 {
-  margin: 0;
-  font-size: 24px;
+.logo h1 {
+  font-size: 1.8rem;
   letter-spacing: 2px;
+  color: #ff6f61;
 }
 
-header nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.nav ul {
   display: flex;
+  gap: 1.5rem;
+  list-style: none;
 }
 
-header nav ul li {
-  margin-right: 20px;
+.nav a {
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
   position: relative;
 }
 
-header nav ul li a {
-  font-weight: 500;
-  font-size: 18px;
-  opacity: 0;
-  animation: fadeInText 1.5s ease-out forwards;
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff6f61;
+  transition: width 0.3s ease;
 }
 
-header nav ul li a:hover {
+.nav a:hover::after {
+  width: 100%;
+}
+
+.language-dropdown select {
+  background: #1e1e1e;
+  color: #fff;
+  border: 2px solid #ff6f61;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.language-dropdown select:hover {
+  background: #292929;
+  border-color: #ff856f;
+}
+
+/* === Hero === */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
   color: #ff6f61;
-  transform: scale(1.1);
-  /* Увеличение при наведении */
 }
 
-/* Main Content */
-.main-content {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.main-content h2 {
-  font-size: 36px;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 20px;
-}
-
-.main-content p {
-  font-size: 18px;
+.hero p {
   max-width: 700px;
-  margin: 20px auto;
-  line-height: 1.5;
-  opacity: 0;
-  animation: fadeInText 2s ease-out forwards;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
-/* Portfolio Section */
-.portfolio {
-  padding: 60px 20px;
-  background-color: #121212;
+/* === Countdown === */
+.countdown {
   text-align: center;
+  padding: 3rem 1rem;
 }
 
-.portfolio h3 {
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeInText 1.5s ease-out forwards;
+.countdown h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
-.portfolio p {
-  font-size: 18px;
-  max-width: 700px;
-  margin: 20px auto;
-  line-height: 1.6;
-  opacity: 0;
-  animation: fadeInText 2s ease-out forwards;
-}
-
-.portfolio-items {
+.timer {
   display: flex;
   justify-content: center;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 30px;
 }
 
-.portfolio-item {
-  width: 300px;
-  background-color: #292929;
-  border-radius: 8px;
-  padding: 20px;
+.time-box {
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  min-width: 90px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.portfolio-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.portfolio-item h4 {
-  font-size: 20px;
-  margin-top: 15px;
-  color: #ff6f61;
-  opacity: 0;
-  animation: fadeInText 2s ease-out forwards;
-}
-
-.portfolio-item p {
-  font-size: 16px;
-  color: #b0b0b0;
-  margin-top: 10px;
-  opacity: 0;
-  animation: fadeInText 2.5s ease-out forwards;
-}
-
-/* Social Links */
-.social-links {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.social-links h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeInText 2s ease-out forwards;
-}
-
-.social-icons a {
-  margin: 0 15px;
-  display: inline-block;
-  opacity: 0;
-  animation: fadeInText 2.5s ease-out forwards;
-}
-
-.social-icons img {
-  width: 40px;
-  height: 40px;
-}
-
-.social-icons a:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-/* Footer */
-footer {
-  background-color: #121212;
-  color: #f0f0f0;
-  padding: 40px 20px;
-  text-align: center;
-  font-size: 22px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-  border-top: 1px solid #333;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-footer p {
-  margin: 0px 0;
-  font-family: 'Roboto', sans-serif;
-  color: #f0f0f0;
-}
-
-.footer-note {
-  font-size: 20px;
-  color: #b0b0b0;
-  margin-top: 10px;
-  font-style: italic;
-  opacity: 0;
-  animation: fadeInText 3s ease-out forwards;
-}
-
-footer a {
-  color: #ff6f61;
-  text-decoration: none;
   font-weight: bold;
+  font-size: 1.8rem;
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
-html,
-body {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Стили для снежинок */
-.snowflake {
-  position: absolute;
-  top: -10px;
-  /* Начальная позиция выше экрана */
-  z-index: 1000;
-  color: #ffffff;
-  font-size: 24px;
-  user-select: none;
-  animation: snowfall linear infinite;
-  pointer-events: none;
-  /* Чтобы снежинки не мешали кликам */
-}
-
-/* Анимация падения снега */
-@keyframes snowfall {
-  0% {
-    transform: translateY(-10px) rotate(0deg);
-    /* Начинается чуть выше экрана */
-  }
-
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    /* Падает до нижней части экрана */
-  }
-}
-
-/* Чтобы снег выглядел как точки или мелкие снежинки */
-.snowflake {
-  font-size: 18px;
+.time-box .label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: 0.3rem;
   opacity: 0.8;
 }
 
-
-/* Контейнер выпадающего списка */
-.language-dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 20px;
+/* === Section === */
+.section {
+  padding: 4rem 1rem;
+  text-align: center;
 }
 
-/* Стили для <select> */
-.language-dropdown select {
-  appearance: none; /* Убираем стандартный вид */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border: 2px solid #ff6f61;
-  border-radius: 20px; /* Увеличено закругление */
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  position: relative;
-  z-index: 10;
-}
-
-/* Стили при наведении */
-.language-dropdown select:hover {
-  background-color: #292929;
-  border-color: #ff856f;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
-}
-
-/* Стили при фокусе */
-.language-dropdown select:focus {
-  outline: none;
-  border-color: #ff6f61;
-  box-shadow: 0 0 8px #ff6f61;
-}
-
-/* Стили опций */
-.language-dropdown select option {
-  background-color: #1e1e1e; /* Цвет фона */
-  color: #ffffff; /* Цвет текста */
-  padding: 10px;
-  border-radius: 5px; /* Закругление углов опций */
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  margin: 2px 0;
-}
-
-/* Убираем стандартное выделение синего цвета */
-.language-dropdown select option:checked {
-  background-color: #ff6f61;
-  color: #ffffff;
-}
-
-/* При наведении на опцию */
-.language-dropdown select option:hover {
-  background-color: #383838;
+.section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
   color: #ff6f61;
-  transition: all 0.3s ease;
 }
 
-/* Добавляем стрелочку */
-.language-dropdown::after {
-  content: '▼';
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  font-size: 14px;
-  color: #ffffff;
-  pointer-events: none;
+.section > p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+}
+
+/* === Portfolio === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.portfolio-card {
+  background: #292929;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-card h4 {
+  color: #ff6f61;
+  margin: 0.8rem 0 0.5rem;
+}
+
+.portfolio-card p {
+  font-size: 0.95rem;
+  color: #b0b0b0;
+}
+
+/* === Social === */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
-/* Эффект вращения стрелки при наведении */
-.language-dropdown select:hover + .language-dropdown::after {
-  transform: translateY(-50%) rotate(180deg);
+.social-icons a:hover {
+  transform: scale(1.2) rotate(5deg);
 }
 
+.social-icons img {
+  width: 45px;
+  height: 45px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
 
-/* Адаптация для телефонов (до 768px ширины) */
+.social-icons a:hover img {
+  filter: brightness(1) hue-rotate(20deg);
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background: #0a0a0a;
+  border-top: 1px solid #333;
+  font-size: 1rem;
+}
+
+.footer .note {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* === Снежинки === */
+#snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.snowflake {
+  position: absolute;
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  animation: snowfall linear infinite;
+  user-select: none;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* === Адаптивность === */
 @media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  header {
+  .header {
     flex-direction: column;
-    text-align: center;
-    padding: 10px;
+    gap: 1rem;
+    padding: 1rem;
   }
 
-  header .logo h1 {
-    font-size: 20px;
-  }
-
-  header nav ul {
+  .nav ul {
     flex-direction: column;
+    align-items: center;
   }
 
-  header nav ul li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .main-content h2 {
-    font-size: 28px;
-  }
-
-  .main-content p {
-    font-size: 16px;
-    padding: 0 10px;
-  }
-
-  .portfolio-items {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .portfolio-item {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .social-icons a {
-    margin: 0 10px;
-  }
-
-  footer {
-    font-size: 18px;
-  }
-
-  .language-dropdown select {
-    width: 100%;
-    padding: 10px;
-  }
+  .hero h2 { font-size: 2.2rem; }
+  .timer { gap: 0.8rem; }
+  .time-box { min-width: 70px; font-size: 1.5rem; padding: 0.8rem; }
 }
 
-/* Дополнительная адаптация для очень узких экранов (до 480px ширины) */
 @media (max-width: 480px) {
-  .main-content h2 {
-    font-size: 24px;
-  }
-
-  .main-content p {
-    font-size: 14px;
-  }
-
-  .portfolio-item img {
-    width: 100%;
-    height: auto;
-  }
-
-  footer p {
-    font-size: 16px;
-  }
-
-  .footer-note {
-    font-size: 14px;
-  }
-
-  .language-dropdown select {
-    font-size: 14px;
-    padding: 8px;
-  }
+  .hero h2 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .social-icons img { width: 38px; height: 38px; }
 }
