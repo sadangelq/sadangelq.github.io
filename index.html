@@ -1,150 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>sadangelq - Разработчик</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="images/logos.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        #countdown {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .timer-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            font-size: 2rem;
-            font-weight: bold;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .timer-box {
-            background: #222;
-            color: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 80px;
-            text-align: center;
-        }
-        .timer-label {
-            font-size: 1rem;
-            font-weight: normal;
-            margin-top: 5px;
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sadangelq - Разработчик</title>
+  <link rel="shortcut icon" href="images/logos.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <header>
-        <div class="logo">
-            <h1>sadangelq</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/" data-lang="home">Главная</a></li>
-                <li><a href="#portfolio" data-lang="portfolio">Портфолио</a></li>
-                <li><a href="#social-links" data-lang="contacts">Контакты</a></li>
-                <li><a href="menager.html" data-lang="manager">Менеджер</a></li>
-            </ul>
-        </nav>
-        <div class="language-dropdown">
-            <select id="language-select">
-                <option value="ru" selected>Русский</option>
-                <option value="en">English</option>
-                <option value="uk">Українська</option>
-                <option value="pl">Polski</option>
-                <option value="by">Беларуская</option>
-            </select>
-        </div>
-    </header>
 
-    <section class="main-content">
-        <h2 data-lang="heading">SADANGELQ</h2>
-        <p data-lang="description">Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.</p>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h1>sadangelq</h1>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#" data-lang="home">Главная</a></li>
+        <li><a href="#portfolio" data-lang="portfolio">Портфолио</a></li>
+        <li><a href="#social-links" data-lang="contacts">Контакты</a></li>
+        <li><a href="menager.html" data-lang="manager">Менеджер</a></li>
+      </ul>
+    </nav>
+    <div class="language-dropdown">
+      <select id="language-select" aria-label="Выбор языка">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="uk">Українська</option>
+        <option value="pl">Polski</option>
+        <option value="by">Беларуская</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <h2 data-lang="heading">SADANGELQ</h2>
+      <p data-lang="description">Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.</p>
     </section>
 
-    <section id="countdown">
-        <h3><p data-lang="timer-title"></p></h3>
-        <div class="timer-container">
-            <div class="timer-box"><span id="days">00</span><span class="timer-label"><p data-lang="timer-days"></p></span></div>
-            <div class="timer-box"><span id="hours">00</span><span class="timer-label"><p data-lang="timer-hours"></p></span></div>
-            <div class="timer-box"><span id="minutes">00</span><span class="timer-label"><p data-lang="timer-minutes"></p></span></div>
-            <div class="timer-box"><span id="seconds">00</span><span class="timer-label"><p data-lang="timer-seconds"></p></span></div>
-        </div>
+    <!-- Countdown -->
+    <section id="countdown" class="countdown">
+      <h3><span data-lang="timer-title">Обратный отсчёт до разбана</span></h3>
+      <div class="timer">
+        <div class="time-box"><span id="days">00</span><span class="label" data-lang="timer-days">Дней</span></div>
+        <div class="time-box"><span id="hours">00</span><span class="label" data-lang="timer-hours">Часов</span></div>
+        <div class="time-box"><span id="minutes">00</span><span class="label" data-lang="timer-minutes">Минут</span></div>
+        <div class="time-box"><span id="seconds">00</span><span class="label" data-lang="timer-seconds">Секунд</span></div>
+      </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <h3 id="portfolio-title" data-lang="portfolio-title">Мои работы</h3>
-        <p data-lang="portfolio-description">Я создал такие сайты как эти:</p>
-        <div class="portfolio-items">
-            <div class="portfolio-item">
-                <a href="https://kosmostimes.fun" target="_blank">
-                    <h4>KosmosTimes</h4>
-                    <p data-lang="ks-description">Основной сайт для майнкрафт проекта KosmosTimes (KS)</p>
-                </a>
-            </div>
-            <div class="portfolio-item">
-                <a href="https://fantastikmine.github.io" target="_blank">
-                    <h4>FantastikMine</h4>
-                    <p data-lang="fm-description">Основной сайт для майнкрафт проекта FantastikMine (FM)</p>
-                </a>
-            </div>
-            <div class="portfolio-item">
-                <a href="https://fantastikmine.github.io/tf" target="_blank">
-                    <h4>FantastikMine TF</h4>
-                    <p data-lang="fm-tf-description">Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)</p>
-                </a>
-            </div>
-        </div>
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio section">
+      <h3 data-lang="portfolio-title">Мои работы</h3>
+      <p data-lang="portfolio-description">Я создал такие сайты как эти:</p>
+      <div class="portfolio-grid">
+        <a href="https://kosmostimes.fun" target="_blank" class="portfolio-card">
+          <h4>KosmosTimes</h4>
+          <p data-lang="ks-description">Основной сайт для майнкрафт проекта KosmosTimes (KS)</p>
+        </a>
+        <a href="https://fantastikmine.github.io" target="_blank" class="portfolio-card">
+          <h4>FantastikMine</h4>
+          <p data-lang="fm-description">Основной сайт для майнкрафт проекта FantastikMine (FM)</p>
+        </a>
+        <a href="https://fantastikmine.github.io/tf" target="_blank" class="portfolio-card">
+          <h4>FantastikMine TF</h4>
+          <p data-lang="fm-tf-description">Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)</p>
+        </a>
+      </div>
     </section>
 
     <!-- Social Links -->
-    <section id="social-links" class="social-links">
-        <h3 data-lang="social-title">Я в социальных сетях</h3>
-        <div class="social-icons">
-            <a href="https://www.youtube.com/@sadangelq" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-            <a href="https://github.com/fantastikmine" target="_blank"><img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="GitHub"></a>
-            <a href="https://www.twitch.tv/sadangelq" target="_blank"><img src="https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-9k76-p-kartinki-tvich-na-prozrachnom-fone-18.png" alt="Twitch"></a>
-            <a href="https://www.tiktok.com/@sad.angelq" target="_blank"><img src="https://w7.pngwing.com/pngs/959/454/png-transparent-tiktok-logo-thumbnail.png" alt="TikTok"></a>
-            <a href="https://discord.com/invite/rAHdavcMvB" target="_blank"><img src="https://img.icons8.com/?size=100&id=2mIgusGquJFz&format=png&color=000000" alt="Discord"></a>
-        </div>
+    <section id="social-links" class="social section">
+      <h3 data-lang="social-title">Я в социальных сетях</h3>
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@sadangelq" target="_blank" aria-label="YouTube">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" />
+        </a>
+        <a href="https://github.com/fantastikmine" target="_blank" aria-label="GitHub">
+          <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="GitHub" />
+        </a>
+        <a href="https://www.twitch.tv/sadangelq" target="_blank" aria-label="Twitch">
+          <img src="https://foni.papik.pro/uploads/posts/2024-10/foni-papik-pro-9k76-p-kartinki-tvich-na-prozrachnom-fone-18.png" alt="Twitch" />
+        </a>
+        <a href="https://www.tiktok.com/@sad.angelq" target="_blank" aria-label="TikTok">
+          <img src="https://w7.pngwing.com/pngs/959/454/png-transparent-tiktok-logo-thumbnail.png" alt="TikTok" />
+        </a>
+        <a href="https://discord.com/invite/rAHdavcMvB" target="_blank" aria-label="Discord">
+          <img src="https://img.icons8.com/?size=100&id=2mIgusGquJFz&format=png&color=000000" alt="Discord" />
+        </a>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p data-lang="footer1-description">&copy; 2023 Sadangelq Corporation. Все права защищены.</p>
-            <p data-lang="footer2-description" class="footer-note">Sadangelq Corporation и KosmosTimes Corporation не связаны с Mojang Studios и Microsoft и их EULA.</p>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <p data-lang="footer1-description">&copy; 2023 Sadangelq Corporation. Все права защищены.</p>
+    <p class="note" data-lang="footer2-description">
+      Sadangelq Corporation и KosmosTimes Corporation не связаны с Mojang Studios и Microsoft и их EULA.
+    </p>
+  </footer>
 
-    <script>
-        function updateCountdown() {
-            const targetDate = new Date('March 23, 2025 13:29:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = targetDate - now;
+  <!-- Snowflakes Container -->
+  <div id="snowflakes"></div>
 
-            if (timeLeft < 0) {
-                document.getElementById('countdown').innerHTML = '<h3>Событие наступило!</h3>';
-                return;
-            }
-
-            document.getElementById('days').innerText = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            document.getElementById('hours').innerText = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('minutes').innerText = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById('seconds').innerText = Math.floor((timeLeft % (1000 * 60)) / 1000);
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
-</body>
-
-</html>                                                                                                                                    
+</html>
