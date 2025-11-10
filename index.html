@@ -1,15 +1,12 @@
-// Load saved language и обновить элементы после загрузки
-    window.addEventListener('DOMContentLoaded', () => {
+// Apply language immediately on DOMContentLoaded
+    function initLanguage() {
       const savedLang = localStorage.getItem('selectedLang') || 'ru';
       langSelect.value = savedLang;
       updateLanguage(savedLang);
-    });
+    }
 
-    window.addEventListener('load', () => {
-      const savedLang = localStorage.getItem('selectedLang') || 'ru';
-      langSelect.value = savedLang;
-      updateLanguage(savedLang);
-    });<!DOCTYPE html>
+    document.addEventListener('DOMContentLoaded', initLanguage);
+    window.addEventListener('load', initLanguage);<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -1024,6 +1021,7 @@
         heading: 'SADANGELQ',
         description: 'Początkujący kodér w Java, HTML, PHP, tłumaczenie wtyczek i nie tylko.',
         'timer-title': 'Odliczanie do odblokowania',
+        'timer-subtitle': 'Czasu zostało mało',
         'timer-days': 'Dni',
         'timer-hours': 'Godzin',
         'timer-minutes': 'Minut',
@@ -1034,6 +1032,7 @@
         'fm-description': 'Główna strona projektu Minecraft FantastikMine (FM)',
         'fm-tf-description': 'Strona Federacji Handlowej dla projektu Minecraft FantastikMine (FM TF)',
         'social-title': 'Obserwuj mnie w mediach społecznościowych',
+        'social-subtitle': 'Subskrybuj i śledź aktualizacje',
         'footer-1': '© 2025 SADANGELQ. Wszelkie prawa zastrzeżone.',
         'footer-2': 'Stworzone z ❤️ dla kreatywnych pomysłów'
       },
@@ -1044,6 +1043,7 @@
         heading: 'SADANGELQ',
         description: 'Пачынаючы кодар на Java, HTML, PHP, переклад плагінаў і не толькі.',
         'timer-title': 'Адварот адліку да разбана',
+        'timer-subtitle': 'Часу застаўся мала',
         'timer-days': 'Дзён',
         'timer-hours': 'Гадзін',
         'timer-minutes': 'Хвілін',
@@ -1054,6 +1054,7 @@
         'fm-description': 'Асноўны сайт праекта Minecraft FantastikMine (FM)',
         'fm-tf-description': 'Сайт Гандлёўнай Федэрацыі для праекта Minecraft FantastikMine (FM TF)',
         'social-title': 'Сачыце за мною ў сацыяльных сетках',
+        'social-subtitle': 'Падпішыцеся і стежыце за абнаўленнямі',
         'footer-1': '© 2025 SADANGELQ. Усе правы абаронены.',
         'footer-2': 'Стварана з ❤️ для крэатыўных ідэй'
       }
