@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+// Load saved language и обновить элементы после загрузки
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('selectedLang') || 'ru';
+      langSelect.value = savedLang;
+      updateLanguage(savedLang);
+    });
+
+    window.addEventListener('load', () => {
+      const savedLang = localStorage.getItem('selectedLang') || 'ru';
+      langSelect.value = savedLang;
+      updateLanguage(savedLang);
+    });<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -836,7 +847,7 @@
   <section class="countdown-block" id="countdown">
     <div class="block-header">
       <h2 class="block-title" data-lang="timer-title">Обратный отсчёт до разбана</h2>
-      <p class="block-subtitle">Осталось совсем немного времени</p>
+      <p class="block-subtitle" data-lang="timer-subtitle">Осталось совсем немного времени</p>
     </div>
     <div class="countdown-grid">
       <div class="countdown-card">
@@ -947,6 +958,7 @@
         heading: 'SADANGELQ',
         description: 'Начинающий кодер на Java, HTML, PHP, перевод плагинов и не только.',
         'timer-title': 'Обратный отсчёт до разбана',
+        'timer-subtitle': 'Осталось совсем немного времени',
         'timer-days': 'Дней',
         'timer-hours': 'Часов',
         'timer-minutes': 'Минут',
@@ -957,6 +969,7 @@
         'fm-description': 'Основной сайт для майнкрафт проекта FantastikMine (FM)',
         'fm-tf-description': 'Сайт Торговой Федерации для майнкрафт проекта FantastikMine (FM TF)',
         'social-title': 'Я в социальных сетях',
+        'social-subtitle': 'Подписывайтесь и следите за обновлениями',
         'footer-1': '© 2025 SADANGELQ. Все права защищены.',
         'footer-2': 'Разработано с ❤️ для творческих идей'
       },
@@ -967,6 +980,7 @@
         heading: 'SADANGELQ',
         description: 'Beginner coder in Java, HTML, PHP, plugin translation and more.',
         'timer-title': 'Countdown to unban',
+        'timer-subtitle': 'Time is running out',
         'timer-days': 'Days',
         'timer-hours': 'Hours',
         'timer-minutes': 'Minutes',
@@ -977,6 +991,7 @@
         'fm-description': 'Main site for Minecraft project FantastikMine (FM)',
         'fm-tf-description': 'Trading Federation site for Minecraft project FantastikMine (FM TF)',
         'social-title': 'Follow me on social media',
+        'social-subtitle': 'Subscribe and stay updated',
         'footer-1': '© 2025 SADANGELQ. All rights reserved.',
         'footer-2': 'Built with ❤️ for creative ideas'
       },
@@ -987,6 +1002,7 @@
         heading: 'SADANGELQ',
         description: 'Початківець програміста на Java, HTML, PHP, переклад плагінів та багато іншого.',
         'timer-title': 'Зворотний відлік до розбану',
+        'timer-subtitle': 'Часу залишилося мало',
         'timer-days': 'Днів',
         'timer-hours': 'Годин',
         'timer-minutes': 'Хвилин',
@@ -997,6 +1013,7 @@
         'fm-description': 'Основний сайт проекту Minecraft FantastikMine (FM)',
         'fm-tf-description': 'Сайт Торгової Федерації для проекту Minecraft FantastikMine (FM TF)',
         'social-title': 'Слідкуйте за мною в соціальних мережах',
+        'social-subtitle': 'Підписуйтесь і стежте за оновленнями',
         'footer-1': '© 2025 SADANGELQ. Всі права захищені.',
         'footer-2': 'Створено з ❤️ для творчих ідей'
       },
